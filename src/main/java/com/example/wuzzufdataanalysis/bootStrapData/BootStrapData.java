@@ -42,7 +42,7 @@ public class BootStrapData implements CommandLineRunner {
                 .master("local[2]")
                 .appName("Integrating Spring-boot with Apache Spark")
                 .getOrCreate();
-        Dataset<Row> dataSet = sparkSession.read().option("header", true).csv("D:\\Data Preparation and visualization course\\Wuzzuf_Jobs.csv");
+        Dataset<Row> dataSet = sparkSession.read().option("header", true).csv("src/main/resources/Wuzzuf_Jobs.csv");
         dataSet.toLocalIterator().forEachRemaining(s->{
             RowEntity rowEntity = new RowEntity(
                     s.getString(0),
